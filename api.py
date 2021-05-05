@@ -1,6 +1,6 @@
 from tornado.web import Application, RequestHandler
 from tornado.ioloop import IOLoop
-from enhance import toImage,leave
+from enhance import toImage, leave
 
 items = []
 
@@ -14,11 +14,12 @@ class TodoItem(RequestHandler):
     def post(self):
         data = self.request.body
         img = toImage(data)
+        print(" 200")
         self.write({
             "msg": 200,
             "img_enhanced": img.decode()
         })
-        print(" 200")
+
 
         # try:
         #
@@ -27,7 +28,6 @@ class TodoItem(RequestHandler):
         #         "msg": "error"
         #     })
         #     print(" error ")
-
 
 
 def make_app():
